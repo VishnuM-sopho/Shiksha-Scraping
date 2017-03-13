@@ -15,16 +15,13 @@
 
        
        <script>
-        var res= {
-    loader : $('<div />',{class: 'loader'}),
-    container: $('.container')
-}
-   
+     
 function post(){
         $web1 =$("#web").val();
-    
+   // $("#res").hide();
+           
     $.ajax({
-        url : 'v23.php',
+        url : 'vf.php',
         type :"POST",
         data : {'web':$web1},
         beforeSend :function(){
@@ -39,13 +36,15 @@ function post(){
            // res.container.append(res.loader);
         },
         success: function(data){
-            $('.container').hide();
+            $('.container').show();
             $("#res").html(data);
             //.delay(2000).hide(4);
               $('.load1').css('background', 'rgba(255,255,255)');
           //alert(2);
           $('.load1').hide();
           $('.enter').show();
+           //$("#res").delay(2000).hide(6);
+           
             
            // $("#res").delay(2000).html("");
         
@@ -86,7 +85,7 @@ function post(){
 </p>   
             </div>
             
-        </div>
+        </div><p><br><br><br><br><br></p>
          <div id="res"></div>
          <div class="enter"> <p>
                 <a href = "input.php">Enter website again</a>

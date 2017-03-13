@@ -5,19 +5,19 @@
 $stmt1=mysqli_prepare($dbc,$query1);
 mysqli_stmt_execute($stmt1);
 */
-mysqli_query($dbc,"TRUNCATE TABLE data");
+//mysqli_query($dbc,"TRUNCATE TABLE data");
 
 
 $data= file_get_contents('http://engineering.shiksha.com/be-btech-courses-in-chennai-2-ctpg');
 //var_dump($data);
 //preg_match_all('@<a class="institute-title-clr" href=(.+) ',$data,$link);
-if (preg_match_all('@<a class="institute-title-clr" href="(.+)" title="[^"]+">(.+)</a><span>@',$data,$match))
+if (preg_match_all('@(?<=<h2 class="tuple-clg-heading">)<a href="(.*)" target="_blank">(.+)</a>@',$data,$match))
 {   //match[1][] contains links
     //match[2][] contains names of colleges
     
 
    // var_dump($match[1][3]);
-    for($i=0;$i<30;$i++)
+    for($i=0;$i<3;$i++)
     {
     $col = file_get_contents($match[1][$i])  ; 
    //established $year[0]
@@ -74,8 +74,8 @@ $query=("INSERT INTO data (cname, cadd, year, courses, infra, web) VALUES  (?,?,
 
              mysqli_stmt_close($stmt);
         }else {
-          //  echo 'Error Occurred<br />';
-          //  echo mysqli_error($dbc);
+            echo 'Error Occurred<br />';
+            echo mysqli_error($dbc);
             mysqli_stmt_close($stmt);
            // mysqli_close($dbc);
                 }
