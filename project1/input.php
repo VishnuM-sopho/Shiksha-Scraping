@@ -29,24 +29,26 @@ function post(){
               $('.enter').hide();
             $('.container').hide();
             $('.load1').show();
+            $("#res").hide();
            $('.load1').css({'background-image' : 'url("https://vishnum21998-vishnum1998.cs50.io/loader.gif")',
       'background-repeat': 'no-repeat','top' : '50%','left' : '50%'});
           
-           //css('background','url("https://vishnum21998-vishnum1998.cs50.io/loader.gif")');
-           // res.container.append(res.loader);
         },
         success: function(data){
             $('.container').show();
             $("#res").html(data);
+            $("#res").show();
+            
+            $('#web').hide();
+            $('#top').hide();
+            $('#but').hide();
+           // $('.middle').hide();
             //.delay(2000).hide(4);
               $('.load1').css('background', 'rgba(255,255,255)');
           //alert(2);
           $('.load1').hide();
           $('.enter').show();
-           //$("#res").delay(2000).hide(6);
            
-            
-           // $("#res").delay(2000).html("");
         
         }
     });
@@ -72,25 +74,60 @@ function post(){
     </head>
     <form>
             <input id="web" placeholder="Website" type="text">
-        <input type="button" value="Submit" onclick="post();">
+        <input id="but" type="button" value="Submit" onclick="post();">
     </form>
    </div>
           
 
         </div>
+        
+        
         <div class="load1">
             <div id ="middle">
-             <p>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</p>   
+             <p> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> </p>
             </div>
             
-        </div><p><br><br><br><br><br></p>
-         <div id="res"></div>
-         <div class="enter"> <p>
+        </div>
+          <div class="enter"> <p>
                 <a href = "input.php">Enter website again</a>
     
             </p></div>
+        <p><br><br><br><br><br></p>
+        
+        <style>table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th {
+    background-color: black;
+    color: white;
+}
+
+</style>
+        
+         
+         <div id="res">
+             
+        
+      
+  
+    </div>
+    
+    
+       
    
     </body>
 

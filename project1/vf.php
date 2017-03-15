@@ -77,6 +77,49 @@ for($j=1;;)
     #after code runs outputting the number of colleges
     $count--;
     echo "Total colleges entered " .$count ;
+    
+    
+    
+    
+print("    <table   id='t01'>        
+   <thead>
+        <tr>
+   
+    <th>Name</th>
+    <th>Location</th>
+    <th>Infrastructure / Facilities</th>
+    <th>Reviews</th>
+ </tr>
+    </thead>
+    <tbody >
+    ");
+    
+     $result = mysqli_query($dbc,"SELECT * FROM dataf");
+    
+
+    while($row = mysqli_fetch_array($result))
+      {
+      //echo $row['name'] . " " . $row['location']. " " . $row['infra']. " " . $row['review']; //these are the fields that you have stored in your database table employee
+      //echo "<br />";
+      
+      
+      
+      
+      print("<tr>");
+            print("<td style='border:1px solid black'>{$row['name']}</td>
+            <td style='border:1px solid black'>{$row['location']}</td>
+            <td style='border:1px solid black'>{$row['infra']}</td>
+            <td style='border:1px solid black'>{$row['review']}</td>
+            </tr>");
+            
+      
+      
+      
+      
+      }
+      print(" </tbody> </table>
+");
+
     }     
     else
     {
